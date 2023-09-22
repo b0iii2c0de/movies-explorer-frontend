@@ -4,6 +4,7 @@
   justify-content: center;
   margin-bottom: 30px;
   gap: 10px;
+  list-style: none;
 }
 
 @media screen and (max-width: 768px) {

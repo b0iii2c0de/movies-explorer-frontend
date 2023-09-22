@@ -10,8 +10,9 @@ function Navigation({ handleCloseMobileMenu }) {
     <div className="navigation">
       <div className="navigation__container"></div>
       <div className="navigation__menu">
-  <button
+        <button
           className="navigation__close-button"
+          type="button"
           onClick={handleCloseMobileMenu}
         ></button>
         <nav className="navigation__links">

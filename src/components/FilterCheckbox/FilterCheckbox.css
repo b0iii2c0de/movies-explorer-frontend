@@ -1,6 +1,6 @@
 .filter-checkbox {
   max-width: 1280px;
-  margin: 28px 0 40px;
+  margin: 28px 0 38px;
   display: flex;
   justify-content: center;
 }
@@ -26,6 +26,10 @@
   position: relative;
   width: 34px;
   height: 14px;
+}
+
+.filter-checkbox__label:hover {
+  opacity: 0.6;
 }
 
 .filter-checkbox__input {

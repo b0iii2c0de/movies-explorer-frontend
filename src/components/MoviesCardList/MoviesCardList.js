@@ -2,8 +2,12 @@ import React from "react"
 import MoviesCard from "../MoviesCard/MoviesCard"
 import SearchError from "../SearchError/SearchError"
 import "./MoviesCardList.css"
+import { useLocation } from "react-router-dom"
 
 function MoviesCardList() {
+  const movies = { name: "Фильм" }
+  const location = useLocation();
+
   return (
     <section className="cards">
       <SearchError errorText={"Ничего не найдено"} />
@@ -13,13 +17,12 @@ function MoviesCardList() {
         }
       />
       <ul className="cards__list">
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
-        <MoviesCard />
+        <MoviesCard movies={movies} />
+        <MoviesCard movies={movies} />
+        <MoviesCard movies={movies} />
       </ul>
       <div className="cards__button-container">
-        <button className="cards__button">Ещё</button>
+        {location.pathname === "/movies" && (<button className="cards__button" type="button">Ещё</button>)}
       </div>
     </section>
   )

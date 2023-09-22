@@ -3,8 +3,9 @@
 
 body {
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0;
   background-color: #202020;
   font-family: 'Inter', Arial, sans-serif;
   color: #FFF;
 }
+/* * { outline: 1px solid red; } */

@@ -4,9 +4,9 @@ import "./Profile.css"
 
 function Profile() {
   return (
-    <>
+    <main>
       <section className="profile">
-        <h3 className="profile__welcome">Привет, Слава!</h3>
+        <h1 className="profile__welcome">Привет, Слава!</h1>
         <form id="form" className="profile__form" noValidate>
           <label className="profile__label">
             Имя
@@ -39,12 +39,12 @@ function Profile() {
           <button className="profile__button-save" type="submit">
             Редактировать
           </button>
-          <Link to="/profile" type="button" className="profile__link">
+          <Link to="/" type="button" className="profile__link">
             Выйти из аккаунта
           </Link>
         </form>
       </section>
-    </>
+    </main>
   )
 }
 

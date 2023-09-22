@@ -14,7 +14,8 @@
 @media screen and (max-width: 425px) {
   .portfolio {
     max-width: 292px;
-    padding: 0 14px 126px;
+    padding: 0 0 126px;
+    margin-bottom: 10px;
   }
 }
 

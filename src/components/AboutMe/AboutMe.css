@@ -4,7 +4,7 @@
 }
 
 .about-me__title {
-  margin: 3px 0 0;
+  margin: -5px 0 0;
   padding-bottom: 23px;
   border-bottom: 1px solid rgba(218, 218, 218, 1);
   font-weight: 400;
@@ -116,9 +116,9 @@
   }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 766px) {
   .about-me {
-    padding: 70px 14px;
+    padding: 76px 14px 71px;
   }
   .about-me__container {
     margin-top: 60px;

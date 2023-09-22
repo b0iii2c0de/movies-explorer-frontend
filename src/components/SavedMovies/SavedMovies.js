@@ -4,12 +4,14 @@ import Footer from "../Footer/Footer"
 import SearchForm from "../SearchForm/SearchForm"
 
 function SavedMovies() {
-  return (
-    <section className="movies">
+  return (<>
+    <main className="movies">
       <SearchForm />
       <MoviesCardList />
-      <Footer />
-    </section>
+
+    </main>
+    <Footer />
+  </>
   )
 }
 

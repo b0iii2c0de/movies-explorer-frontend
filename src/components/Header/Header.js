@@ -10,7 +10,7 @@ function Header() {
   const activeColorLink = ({ isActive }) =>
     isActive ? "header__button_active" : "header__button"
 
-    const location = useLocation()
+  const location = useLocation()
 
   function handleOpenMobileMenu() {
     setIsClicked(true)
@@ -59,7 +59,7 @@ function Header() {
           <Link to="/" className="form__logo">
             <img src={headerLogo} alt="Логотип" />
           </Link>
-          <div className="header__links header__links_films">
+          <nav className="header__links header__links_films">
             <NavLink to="/movies" className={activeColorLink}>
               Фильмы
             </NavLink>
@@ -67,13 +67,14 @@ function Header() {
             <NavLink to="/saved-movies" className={activeColorLink}>
               Сохранённые фильмы
             </NavLink>
-          </div>
+          </nav>
           <div className="header__links">
             <Link to="/profile" className="header__account-btn">
               Аккаунт
             </Link>
             <button
               className="header__mobile-btn"
+              type="button"
               onClick={handleOpenMobileMenu}
             >
               <img src={mobileMenu} alt="Кнопка мобильного меню" />
