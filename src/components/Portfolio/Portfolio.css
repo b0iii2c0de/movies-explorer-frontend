@@ -6,7 +6,7 @@
 
 @media screen and (max-width: 768px) {
   .portfolio {
-    max-width: 668px;
+    max-width: 768px;
     padding: 0 50px 148px;
   }
 }
@@ -14,7 +14,7 @@
 @media screen and (max-width: 425px) {
   .portfolio {
     max-width: 292px;
-    padding: 0 0 126px;
+    padding: 0 0 27px;
     margin-bottom: 10px;
   }
 }

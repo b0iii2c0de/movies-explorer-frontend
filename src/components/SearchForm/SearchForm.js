@@ -19,10 +19,6 @@ function SearchForm() {
         </div>
         <FilterCheckbox />
       </form>
-
-
-
-      <div className="search__border-bottom"></div>
     </section>
   )
 }

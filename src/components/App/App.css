@@ -12,6 +12,7 @@
     background: #202020;
     min-height: 100vh;
     color: #fff;
+    
   }
   
   .page__wrapper {
@@ -23,6 +24,7 @@
     max-width: 1280px;
     min-width: 320px;
     width: 100%;
+    align-items: center;
   }
   
   * {

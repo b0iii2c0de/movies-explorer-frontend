@@ -1,11 +1,17 @@
 .promo {
   display: flex;
+  position: relative;
   flex-direction: column;
   max-width: 1200px;
   min-height: 493px;
   margin: 0 40px;
   border-radius: 10px;
   background: #272727;
+}
+
+.promo__title {
+  display: flex;
+  
 }
 
 @media screen and (max-width: 768px) {
@@ -23,7 +29,7 @@
 }
 
 .promo__title {
-  margin: 181px 235px 151px;
+  margin: 181px 150px 151px;
   max-width: 730px;
   text-align: center;
   font-size: 50px;
@@ -34,7 +40,7 @@
 
 @media screen and (max-width: 768px) {
   .promo__title {
-    margin: 347px 24px 314px;
+    margin: 370px 24px 314px;
     max-width: 680px;
     font-size: 40px;
     line-height: 52px;

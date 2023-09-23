@@ -43,14 +43,14 @@ function Header() {
           <Link to="/" className="form__logo">
             <img src={headerLogo} alt="Логотип" />
           </Link>
-          <div className="header__links">
-            <Link to="/signup" className="header__button">
+          <nav className="header__links">
+            <NavLink to="/signup" className="header__button">
               Регистрация
-            </Link>
-            <Link to="/signin" className="header__button header__button-green">
+            </NavLink>
+            <NavLink to="/signin" className="header__button header__button-green">
               Войти
-            </Link>
-          </div>
+            </NavLink>
+          </nav>
         </header>
       )}
 
@@ -68,10 +68,10 @@ function Header() {
               Сохранённые фильмы
             </NavLink>
           </nav>
-          <div className="header__links">
-            <Link to="/profile" className="header__account-btn">
+          <nav className="header__links">
+            <NavLink to="/profile" className="header__account-btn">
               Аккаунт
-            </Link>
+            </NavLink>
             <button
               className="header__mobile-btn"
               type="button"
@@ -79,7 +79,7 @@ function Header() {
             >
               <img src={mobileMenu} alt="Кнопка мобильного меню" />
             </button>
-          </div>
+          </nav>
           {isClicked ? (
             <Navigation handleCloseMobileMenu={handleCloseMobileMenu} />
           ) : (

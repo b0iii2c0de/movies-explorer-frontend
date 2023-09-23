@@ -1,5 +1,5 @@
 .not-found {
-  padding: 246px 440px 60px;
+  padding: 246px 0 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,13 +10,13 @@
 
 @media screen and (max-width: 768px) {
   .not-found {
-    padding: 408px 184px 222px;
+    padding: 408px 0 222px;
   }
 }
 
 @media screen and (max-width: 425px) {
   .not-found {
-    padding: 329px 10px 30px;
+    padding: 329px 0 30px;
   }
 }
 

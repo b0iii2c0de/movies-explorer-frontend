@@ -105,9 +105,10 @@
 
 .footer {
   display: flex;
+  position: relative;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 6px 70px 20px 70px;
+  padding: 6px 30px 20px;
   max-width: 1280px;
   width: 100%;
 }
@@ -124,6 +125,7 @@
 }
 
 .footer__container {
+  
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
@@ -162,7 +164,7 @@
 
 @media screen and (max-width: 1023px) {
   .footer__container {
-    margin: 19px -40px 20px -40px;
+    margin: 19px 0 20px 0;
   }
 }
 
