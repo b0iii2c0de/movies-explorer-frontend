@@ -1,0 +1,12 @@
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
+
+body {
+  max-width: 1280px;
+  margin: auto;
+  background-color: #202020;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #FFF;
+  align-items: center;
+}
+* { outline: 1px solid red; }
