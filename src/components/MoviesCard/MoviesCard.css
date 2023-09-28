@@ -79,8 +79,23 @@
 }
 
 .card__like-button_active {
+  width: 100%;
+  min-height: 21px;
+  border-radius: 30px;
+  background: #313131;
+  background-color: rgb(49, 49, 49);
+  background-repeat: repeat;
+  background-image: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 14px;
+  right: 14px;
   width: 21px;
   background-image: url(../../images/icon-save.svg);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
 }
 
 .card__like-delete {

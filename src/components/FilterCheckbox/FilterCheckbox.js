@@ -1,7 +1,7 @@
 import React from "react"
 import "./FilterCheckbox.css"
 
-function FilterCheckbox({ onfilteredFilmMovies, isShortFilm }) {
+function FilterCheckbox({ onCheckboxChange, value }) {
   return (
     <section className="filter-checkbox">
       <div className="filter-checkbox__container">
@@ -10,8 +10,8 @@ function FilterCheckbox({ onfilteredFilmMovies, isShortFilm }) {
             className="filter-checkbox__input"
             type="checkbox"
             id="short-movies"
-            onChange={onfilteredFilmMovies}
-            checked={isShortFilm}
+            onChange={onCheckboxChange}
+            checked={value}
           />
           <div className="filter-checkbox__slider filter-checkbox__round"></div>
         </label>

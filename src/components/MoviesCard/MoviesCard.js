@@ -1,112 +1,46 @@
 import React from "react"
-import { useLocation } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "./MoviesCard.css"
-import image from "../../images/aboutme.jpg"
 
-function MoviesCard({ movies }) {
+function MoviesCard({ movie, handleIsLike, onClick }) {
   const location = useLocation()
+  const pageSavedMovies = location.pathname === "/saved-movies"
 
-  // Временная функция отображать фильмы
-  const handleShowFilm = () => {
-    const { pathname } = location
-    return pathname === "/movies"
+  function convertTime(number) {
+    return `${Math.floor(number / 60)}ч ${number % 60}м`;
   }
 
-  // Временная функция отображать сохранённые фильмы
-  const handleShowSaveFilm = () => {
-    const { pathname } = location
-    return pathname === "/saved-movies"
-  }
+  const handleClick = () => {
+    onClick(movie)
+  };
+
+  const movieImage = location.pathname === "/saved-movies"
+    ? movie.image
+    : `https://api.nomoreparties.co/${movie.image.url}`;
 
   return (
     <>
-      {handleShowSaveFilm() && (
-        <li className="card">
-          <div className="card__wrapper">
+      <li className="card">
+        <div className="card__wrapper">
+          <Link to={movie.trailerLink} target="_blank"
+            rel="noreferrer">
             <img
-              src={image}
+              src={movieImage}
               className="card__image"
-              alt={movies.name}
+              alt={movie.nameRU}
             />
-            <button
-              className="card__like-button card__like-button_active card__like-delete"
-              type="button"
-            ></button>
-            <div className="card__title-block">
-              <h2 className="card__title">33 слова о дизайне</h2>
-              <span className="card__time">1ч 37м</span>
-            </div>
+          </Link>
+          <button
+            className={`${handleIsLike && !pageSavedMovies ? "card__like-button_active" : "card__like-button"} ${pageSavedMovies && 'card__like-delete'}`}
+            type="button"
+            onClick={handleClick}
+          ></button>
+          <div className="card__title-block">
+            <h2 className="card__title">{movie.nameRU}</h2>
+            <span className="card__time">{convertTime(movie.duration)}</span>
           </div>
-        </li>
-      )}
-      {handleShowFilm() && (
-        <>
-          <li className="card">
-            <div className="card__wrapper">
-              <img
-                src={image}
-                className="card__image"
-                alt={movies.name}
-              />
-              <button
-                className="card__like-button card__like-button_active"
-                type="button"
-              ></button>
-              <div className="card__title-block">
-                <h2 className="card__title">33 слова о дизайне</h2>
-                <span className="card__time">1ч 37м</span>
-              </div>
-            </div>
-          </li>
-
-          <li className="card">
-            <div className="card__wrapper">
-              <img
-                src={image}
-                className="card__image"
-                alt={movies.name}
-              />
-              <button className="card__like-button" type="button"></button>
-              <div className="card__title-block">
-                <h2 className="card__title">33 слова о дизайне</h2>
-                <span className="card__time">1ч 37м</span>
-              </div>
-            </div>
-          </li>
-
-          <li className="card">
-            <div className="card__wrapper">
-              <img
-                src={image}
-                className="card__image"
-                alt={movies.name}
-              />
-              <button className="card__like-button" type="button"></button>
-              <div className="card__title-block">
-                <h2 className="card__title">33 слова о дизайне</h2>
-                <span className="card__time">1ч 37м</span>
-              </div>
-            </div>
-          </li>
-          <li className="card">
-            <div className="card__wrapper">
-              <img
-                src={image}
-                className="card__image"
-                alt={movies.name}
-              />
-              <button
-                className="card__like-button card__like-button_active"
-                type="button"
-              ></button>
-              <div className="card__title-block">
-                <h2 className="card__title">33 слова о дизайне</h2>
-                <span className="card__time">1ч 37м</span>
-              </div>
-            </div>
-          </li>
-        </>
-      )}
+        </div>
+      </li>
     </>
   )
 }
