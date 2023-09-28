@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000"; // Поменять url до заливки на сервер
+export const BASE_URL = "https://api.nofaptv.nomoredomainsrocks.ru"; // Поменять url до заливки на сервер
 
 const checkResponse = async (res) => {
     if (res.ok) {

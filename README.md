@@ -7,8 +7,8 @@ https://www.figma.com/file/ROd7Pbzh5UukeUEs7oWMYe/dark-2?type=design&node-id=410
 
 ## Ссылки на проект
 
-- IP: 
+IP 158.160.66.245  
 
-- Frontend: 
+Frontend https://nofaptv.nomoredomainsrocks.ru 
 
-- Backend: 
+Backend https://api.nofaptv.nomoredomainsrocks.ru 

@@ -80,5 +80,5 @@ class MainApi {
 
 export const mainApi = new MainApi({
     // Поменять url до заливки на сервер
-    url: "http://localhost:3000",
+    url: "https://api.nofaptv.nomoredomainsrocks.ru",
 })
