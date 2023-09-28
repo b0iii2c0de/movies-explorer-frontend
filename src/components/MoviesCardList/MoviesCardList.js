@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react"
 import MoviesCard from "../MoviesCard/MoviesCard"
-import SearchError from "../SearchError/SearchError"
 import "./MoviesCardList.css"
 import { useLocation } from "react-router-dom"
 
@@ -35,7 +34,7 @@ function MoviesCardList({ movies, onClick, searchText, savedMovies }) {
 
   const additionСount = () => {
     switch (true) {
-      case windowWidth > 1223:
+      case windowWidth > 1023:
         setInitialCount((prev) => prev + 3);
         break;
       default:
@@ -61,9 +60,7 @@ function MoviesCardList({ movies, onClick, searchText, savedMovies }) {
   }, [windowWidth]);
 
   const resultsMessage = () => {
-    if (location.pathname === "/saved-movies") {
-      return searchText ? "Ничего не найдено." : savedMovies && savedMovies.length !== 0 ? "У вас нет сохраненных фильмов" : "Нужно ввести ключевое слово";
-    } else {
+    if (location.pathname === "/movies") {
       return searchText ? "Ничего не найдено." : "Нужно ввести ключевое слово";
     }
   };
@@ -88,15 +85,9 @@ function MoviesCardList({ movies, onClick, searchText, savedMovies }) {
             }
           </ul>
           <div className="cards__button-container">
-            {location.pathname === "/movies" && (<button className="cards__button" type="button" onClick={additionСount}>Ещё</button>)}
+            {location.pathname === "/movies" && initialCount < movies.length && (<button className="cards__button" type="button" onClick={additionСount}>Ещё</button>)}
           </div>
         </>)}
-      <SearchError errorText={"Ничего не найдено"} />
-      <SearchError
-        errorText={
-          "Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз"
-        }
-      />
 
     </section>
   )

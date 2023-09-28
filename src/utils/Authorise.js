@@ -34,12 +34,13 @@ export const authorize = (userInfo) => {
             password: userInfo.password
         })
     }).then((res) => checkResponse(res))
-    // .then((data) => {
-    //     if (data.token) {
-    //         localStorage.setItem("token", data.token);
-    //         return data;
-    //     }
-    // })
+
+        .then((data) => {
+            if (data.token) {
+                localStorage.setItem("token", data.token);
+                return data;
+            }
+        })
 }
 
 export const checkToken = (token) => {

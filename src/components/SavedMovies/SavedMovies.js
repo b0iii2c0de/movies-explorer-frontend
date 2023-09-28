@@ -20,6 +20,7 @@ function SavedMovies({ filterByName, filterIsShort, savedMovies, onDeleteMovie, 
   };
 
   useEffect(() => {
+
     if (savedMovies) {
       const moviesVisible = filterByName(savedMovies, text);
       if (moviesVisible.length === 0) {
@@ -32,12 +33,8 @@ function SavedMovies({ filterByName, filterIsShort, savedMovies, onDeleteMovie, 
     }
     setFilterMovies([])
 
-    // setSearchTextValidate("");
-  }, [filterByName, filterIsShort, isShortMovie, savedMovies, currentUser]);
-
-  useEffect(() => {
-    console.log(filterMovies)
-  }, [filterMovies, text])
+    setSearchTextValidate("");
+  }, [filterByName, filterIsShort, isShortMovie, savedMovies, currentUser, text]);
 
   const handleCheckbox = () => {
     if (savedMovies) {
@@ -45,18 +42,16 @@ function SavedMovies({ filterByName, filterIsShort, savedMovies, onDeleteMovie, 
     }
   };
 
-
-
   const handleDelete = ({ _id: id }) => {
     onDeleteMovie(id)
   }
 
   return (<>
     <main className="movies">
-      <SearchForm onCheckboxChange={handleCheckbox} onSubmit={handleSearchMovies} isShortMovie={isShortMovie} />
-      <MoviesCardList movies={filterMovies}
-        searchTextValidate={searchTextValidate} onClick={handleDelete} currentUser={currentUser} />
-
+      <SearchForm onCheckboxChange={handleCheckbox} onSubmit={handleSearchMovies}
+        isShortMovie={isShortMovie} searchText={text} />
+      {text && filterMovies.length === 0 ? <p className="cards-message">Ничего не найдено</p> : <MoviesCardList movies={filterMovies}
+        searchTextValidate={searchTextValidate} onClick={handleDelete} currentUser={currentUser} />}
     </main>
     <Footer />
   </>

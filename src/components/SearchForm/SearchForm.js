@@ -31,7 +31,7 @@ function SearchForm({ onSubmit, onCheckboxChange, isShortMovies }) {
 
   return (
     <section className="search">
-      <form className="search__container" id="form" onSubmit={handleSearch}>
+      <form className="search__container" id="form" onSubmit={handleSearch} noValidate>
         <div className="search__form">
           <input
             type="text"
@@ -42,7 +42,7 @@ function SearchForm({ onSubmit, onCheckboxChange, isShortMovies }) {
             required
             onChange={handleChange}
             value={values.query || ""}
-            noValidate
+
           />
           <button type="submit" className="search__form-button"></button>
         </div>

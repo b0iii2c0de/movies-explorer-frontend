@@ -35,9 +35,7 @@ function App() {
         if (data.token) {
           localStorage.setItem("token", data.token);
           setIsLoggedIn(true)
-          setCurrentUser({});
           navigate("/movies", { replace: true })
-          window.location.reload()
         }
       })
       .catch((err) => {
@@ -47,11 +45,12 @@ function App() {
 
 
   const handleRegister = (data) => {
+
     auth
       .register(data)
       .then((userInfo) => {
-        // console.log(userInfo)
-        handleLoginSubmit({ email: data.email, password: data.password })
+        // console.log(setIsLoggedIn)
+        handleLoginSubmit({ email: data.email, password: data.password, name: data.name })
         setCurrentUser(userInfo)
         navigate("/movies", { replace: true });
       })
@@ -65,7 +64,6 @@ function App() {
       mainApi
         .getUserInfo()
         .then((data) => {
-          console.log(data)
           setCurrentUser(data)
         })
         .catch((err) => console.log(`Ошибка ${err}`))
@@ -105,7 +103,7 @@ function App() {
     setIsLoggedIn(false)
     localStorage.clear();
     navigate("/")
-
+    setCurrentUser({})
   }
 
   function handleUpdateUser(data) {

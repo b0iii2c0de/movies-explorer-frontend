@@ -86,7 +86,6 @@ function Movies({
       localStorage.setItem("textSearch", text);
       filterAllMovies([], text, isShorts);
       setIsLoading(false);
-      // setSearchText("");
     }
   };
 

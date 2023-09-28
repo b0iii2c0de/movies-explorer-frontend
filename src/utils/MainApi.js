@@ -1,7 +1,6 @@
 class MainApi {
-    constructor({ url, headers }) {
+    constructor({ url }) {
         this._url = url;
-        this._headers = headers;
     }
 
     _checkResponse(res) {
@@ -14,14 +13,20 @@ class MainApi {
     getUserInfo() {
         return fetch(this._url + "/users/me", {
             method: "GET",
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-type": "application/json"
+            },
         }).then((res) => this._checkResponse(res))
     }
 
     setUserInfo(data) {
         return fetch(this._url + "/users/me", {
             method: "PATCH",
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-type": "application/json"
+            },
             body: JSON.stringify({
                 name: data.name,
                 email: data.email
@@ -32,7 +37,10 @@ class MainApi {
     addSaveMovie(data) {
         return fetch(this._url + "/movies", {
             method: "POST",
-            headers: this._headers,
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-type": "application/json"
+            },
             body: JSON.stringify({
                 country: data.country,
                 director: data.director,
@@ -52,14 +60,20 @@ class MainApi {
     getInitialSavedMovies() {
         return fetch(this._url + "/movies", {
             method: "GET",
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-type": "application/json"
+            },
         }).then((res) => this._checkResponse(res))
     }
 
     deleteMovie(movieId) {
         return fetch(this._url + "/movies/" + movieId, {
             method: "DELETE",
-            headers: this._headers
+            headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-type": "application/json"
+            },
         }).then((res) => this._checkResponse(res))
     }
 }
@@ -67,8 +81,4 @@ class MainApi {
 export const mainApi = new MainApi({
     // Поменять url до заливки на сервер
     url: "http://localhost:3000",
-    headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-        "Content-type": "application/json"
-    }
 })
