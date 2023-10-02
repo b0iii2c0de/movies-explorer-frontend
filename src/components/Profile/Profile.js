@@ -3,8 +3,9 @@ import { Link } from "react-router-dom"
 import "./Profile.css"
 import { CurrentUserContext } from "../Context/CurrentUserContext"
 import useValidator from "../../hooks/useValidator"
+import "../Form/Form.css"
 
-function Profile({ exit, onSubmit }) {
+function Profile({ exit, onSubmit, errorGlobal, resetErrorGlobal }) {
   const currentUser = useContext(CurrentUserContext)
   const {
     values,
@@ -17,6 +18,7 @@ function Profile({ exit, onSubmit }) {
   const [isChange, setIsChange] = useState(false)
 
   useEffect(() => {
+
     if (values.name !== currentUser.name || values.email !== currentUser.email) {
       setIsChange(true);
     } else {
@@ -25,12 +27,13 @@ function Profile({ exit, onSubmit }) {
   }, [currentUser, values]);
 
   useEffect(() => {
+
     resetForm({
       name: currentUser.name || "",
       email: currentUser.email || "",
     })
     setIsChange(false)
-  }, [currentUser, resetForm])
+  }, [currentUser, resetForm, errorGlobal])
 
   const handleInputChange = (e) => {
     const { name, value } = e.target
@@ -49,7 +52,7 @@ function Profile({ exit, onSubmit }) {
         email: values.email,
       }
       onSubmit(newUserData)
-      alert("Данные обновлены")
+      resetErrorGlobal();
     }
   }
 
@@ -57,7 +60,7 @@ function Profile({ exit, onSubmit }) {
     <main>
       <section className="profile">
         <h1 className="profile__welcome">{`Привет, ${currentUser.name}!`}</h1>
-        <form id="form" className="profile__form" noValidate>
+        <form id="form" className="profile__form" noValidate >
           <label className="profile__label">
             Имя
             <input
@@ -92,17 +95,20 @@ function Profile({ exit, onSubmit }) {
             />
             <span className="profile__form-text">{errors.email}</span>
           </label>
+          <span className="form-container__error form-container__error_api">{errorGlobal}</span>
           <button
             className={!isChange || !isValid ? "profile__button-save_disabled" : "profile__button-save"}
             type="button"
             onClick={handleSaveClick}
             disabled={!isChange || !isValid}
           >
+
             Редактировать
           </button>
           <Link to="/" type="button" className="profile__link" onClick={exit}>
             Выйти из аккаунта
           </Link>
+
         </form>
       </section>
     </main>

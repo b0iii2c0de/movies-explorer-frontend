@@ -97,7 +97,7 @@ function App() {
         })
         .catch((err) => console.log(`Ошибка: ${err}`))
     }
-  }, [isLoggedIn, errorGlobal])
+  }, [isLoggedIn])
 
   const exit = () => {
     setIsLoggedIn(false)
@@ -111,9 +111,12 @@ function App() {
       .setUserInfo(data)
       .then((userInfo) => {
         setCurrentUser(userInfo)
-
+        alert("Данные обновлены")
       })
-      .catch((err) => console.log(`Ошибка ${err}`))
+      .catch((err) => {
+        setErrorGlobal(err)
+        console.log(`Ошибка ${err}`)
+      })
   }
 
 
@@ -204,6 +207,8 @@ function App() {
               onSubmit={handleUpdateUser}
               exit={exit}
               element={Profile}
+              errorGlobal={errorGlobal}
+              resetErrorGlobal={resetErrorGlobal}
             />} />
             <Route path="/signup" element={<UnknownUserRoute
               isLoggedIn={isLoggedIn}
@@ -214,6 +219,7 @@ function App() {
             />} />
             <Route path="/signin" element={<UnknownUserRoute
               element={Login}
+              isLoggedIn={isLoggedIn}
               onSubmit={handleLoginSubmit}
               resetErrorGlobal={resetErrorGlobal}
               errorGlobal={errorGlobal} />} />

@@ -6,25 +6,21 @@ function NavTab() {
   return (
     <nav>
       <ul className="nav-tab">
-        <li className="nav-tab__link">
-          <Link to="project" smooth={true} duration={500}>
-            О проекте
-          </Link>
-        </li>
-        <li className="nav-tab__link">
-          <Link to="techs" smooth={true} duration={700}>
-            Технологии
-          </Link>
-        </li>
-        <li className="nav-tab__link">
-          <Link
-            to="about-me"
-            smooth={true}
-            duration={900}
-          >
-            Студент
-          </Link>
-        </li>
+        <Link to="project" smooth={true} duration={500} className="nav-tab__link">
+          О проекте
+        </Link>
+
+        <Link to="techs" smooth={true} duration={700} className="nav-tab__link">
+          Технологии
+        </Link>
+
+        <Link
+          to="about-me"
+          smooth={true}
+          duration={900} className="nav-tab__link"
+        >
+          Студент
+        </Link>
       </ul>
     </nav>
   )

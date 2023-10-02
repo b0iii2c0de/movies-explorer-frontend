@@ -3,7 +3,7 @@ import "../Form/Form.css"
 import Form from "../Form/Form"
 import useValidator from "../../hooks/useValidator";
 
-function Login({ onSubmit, errorGlobal, resetErrorGlobal }) {
+function Login({ onSubmit, errorGlobal, resetErrorGlobal, isLoggedIn }) {
   const { values, handleChange, errors, isValid } = useValidator();
 
   const handleSubmit = (e) => {
@@ -12,7 +12,7 @@ function Login({ onSubmit, errorGlobal, resetErrorGlobal }) {
     resetErrorGlobal()
   };
 
-  return (
+  return (isLoggedIn &&
     <main>
       <Form
         title="Рады видеть!"
