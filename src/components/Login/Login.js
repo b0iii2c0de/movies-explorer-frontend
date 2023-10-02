@@ -12,7 +12,7 @@ function Login({ onSubmit, errorGlobal, resetErrorGlobal, isLoggedIn }) {
     resetErrorGlobal()
   };
 
-  return (isLoggedIn &&
+  return (
     <main>
       <Form
         title="Рады видеть!"
