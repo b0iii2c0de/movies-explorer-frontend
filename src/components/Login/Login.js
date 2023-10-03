@@ -1,8 +1,17 @@
 import React from "react"
 import "../Form/Form.css"
 import Form from "../Form/Form"
+import useValidator from "../../hooks/useValidator";
 
-function Login() {
+function Login({ onSubmit, errorGlobal, resetErrorGlobal, isLoggedIn }) {
+  const { values, handleChange, errors, isValid } = useValidator();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(values);
+    resetErrorGlobal()
+  };
+
   return (
     <main>
       <Form
@@ -12,25 +21,32 @@ function Login() {
         linkText=" Регистрация"
         link="/signup"
         noValidate
+        onSubmit={handleSubmit}
+        isValid={isValid}
+        resetErrorGlobal={resetErrorGlobal}
       >
         <label className="form__label">
           E-mail
           <input
+            onChange={handleChange}
             name="email"
             className="form__input"
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
             id="email-input"
             type="email"
             required
             placeholder="почта"
+            value={values.email || ""}
           />
           <span className="form__input-text">
-            Адрес электронной почты должен содержать символ "@".
+            {errors.email}
           </span>
         </label>
         <label className="form__label">
           Пароль
           <input
             name="password"
+            onChange={handleChange}
             className="form__input"
             id="password-input"
             type="password"
@@ -38,9 +54,11 @@ function Login() {
             maxLength="14"
             required
             placeholder="пароль"
+            value={values.password || ""}
           />
-          <span className="form__input-text">Введите пароль</span>
+          <span className="form__input-text">{errors.password}</span>
         </label>
+        <span className="form-container__error form-container__error_api">{errorGlobal}</span>
       </Form>
     </main>
   )

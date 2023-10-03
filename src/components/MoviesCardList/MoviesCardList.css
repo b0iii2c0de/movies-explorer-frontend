@@ -23,6 +23,10 @@
   margin-bottom: 80px;
 }
 
+.cards-message{
+  margin: 150px auto;
+}
+
 .cards__button {
   box-sizing: border-box;
   width: 320px;
